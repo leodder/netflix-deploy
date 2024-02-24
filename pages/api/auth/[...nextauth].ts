@@ -1,4 +1,4 @@
-import NextAuth from "next-auth/next";
+import NextAuth, { AuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import {compare} from "bcrypt";
 
@@ -10,7 +10,7 @@ import {PrismaAdapter} from '@next-auth/prisma-adapter';
 
 import prismadb from "../../../lib/prismadb";
 
-export default NextAuth({
+export const authOptions: AuthOptions = {
     providers:[
         // FacebookProvider({
         //     clientId:process.env.GITHUB_ID || '',
@@ -72,8 +72,9 @@ export default NextAuth({
         secret: process.env.NEXTAUTH_JWT_SECRET,
     },
     secret: process.env.NEXTAUTH_SECRET,
-});
+};
 
+export default NextAuth(authOptions);
 
 
 //credential:憑證
