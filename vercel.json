@@ -1,0 +1,10 @@
+{
+    "builds": [
+      {
+        "src": "pages",
+        "use": "@now/node",
+        "config": { "prisma": true }
+      }
+    ]
+  }
+  
