@@ -8,9 +8,10 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 const Watch = () => {
     const router = useRouter();
     const {movieId} = router.query;
-
+    console.log(router.query);
+    // console.log(movieId);
     const {data} = useMovie(movieId as string);
-
+    // console.log(data);
     return (
         <div className="h-screen w-screen bg-black">
             <nav className="fixed w-full p-4 z-10 flex flex-row items-center gap-8 bg-black bg-opacity-70">
