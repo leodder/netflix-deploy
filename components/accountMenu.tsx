@@ -2,24 +2,20 @@ import useCurrentUser from "@/hooks/useCurrentUser";
 import { signOut } from "next-auth/react";
 import React from "react";
 import { NextPageContext } from 'next';
+import { useRouter } from "next/router";
 
 interface AccountMenuProps {
     visible?: boolean;
 }
 
 export async function getServerSideProps(context:NextPageContext) {
-  
+  const router = useRouter();
     if(await signOut()){
-      return{
-        redirect: {
-          destination: '/auth',
-          permanent: false,
-        }
-      }
+
+        router.push('/auth')
+
     }
-    return {
-      props:{}
-    }
+
   };
 
 const AccountMenu:React.FC<AccountMenuProps> = ({visible}) => {
