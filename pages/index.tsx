@@ -3,7 +3,7 @@
 
 import {signOut, getSession} from 'next-auth/react';
 //hooks
-import useCurrentUser from '@/hooks/useCurrentUser';
+// import useCurrentUser from '@/hooks/useCurrentUser';
 import useMovieList from '@/hooks/useMovieList';
 import useInfoModal from '@/hooks/useInfoModal';
 //protect the home route
