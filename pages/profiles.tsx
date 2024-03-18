@@ -4,6 +4,16 @@ import { getSession, useSession  } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export async function getServerSideProps(context: NextPageContext){
+
+    // 延迟等待时间（以毫秒为单位）
+    const delay = 3000; // 3 秒
+
+    // 使用 Promise 包装 setTimeout，以便稍后 await
+    const delayPromise = () => new Promise(resolve => setTimeout(resolve, delay));
+
+    // 等待一段时间
+    await delayPromise();
+
     const session = await getSession(context);
 
     if(!session){
