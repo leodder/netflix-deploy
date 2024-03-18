@@ -28,7 +28,7 @@ const AccountMenu:React.FC<AccountMenuProps> = ({visible}) => {
                 <hr className="bg-gray-600 border-0 h-px my-4" />
                 <div onClick={async () => {
                     await signOut();
-                    await router.push('/');
+                    await router.push('/auth');
                     }} className="px-3 text-center text-white text-sm hover:underline">
                     Sign out of Netflix
                 </div>
