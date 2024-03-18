@@ -50,7 +50,7 @@ const Auth = () =>{
                 email,
                 password,
                 redirect:false,
-                callbackUrl:'/',
+                callbackUrl:'/profiles',
             });
             router.push('/profiles');
 
