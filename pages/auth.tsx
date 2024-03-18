@@ -13,22 +13,22 @@ import {FcGoogle} from 'react-icons/fc';
 import {FaGithub} from 'react-icons/fa';
 
 
-export async function getServerSideProps(context: NextPageContext) {
-    const session = await getSession(context);
+// export async function getServerSideProps(context: NextPageContext) {
+//     const session = await getSession(context);
   
-    if (session) {
-      return {
-        redirect: {
-          destination: '/profiles',
-          permanent: false,
-        }
-      }
-    }
+//     if (session) {
+//       return {
+//         redirect: {
+//           destination: '/profiles',
+//           permanent: false,
+//         }
+//       }
+//     }
   
-    return {
-      props: {}
-    }
-  }
+//     return {
+//       props: {}
+//     }
+//   }
 
 const Auth = () =>{
     // const router = useRouter();
@@ -49,7 +49,7 @@ const Auth = () =>{
             await signIn('credentials',{
                 email,
                 password,
-                redirect:false,
+                // redirect:false,
                 callbackUrl:'/profiles',
             });
             // router.push('/profiles');
