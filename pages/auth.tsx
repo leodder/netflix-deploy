@@ -1,15 +1,34 @@
 //hooks
 import { useState,useCallback } from "react";
+import { NextPageContext } from 'next';
 // import { useRouter } from "next/router";
 //components
 import Input from "../components/input";
 //axios
 import axios from 'axios';
 //signin
-import {signIn} from 'next-auth/react';
+import {getSession,signIn} from 'next-auth/react';
 //icons
 import {FcGoogle} from 'react-icons/fc';
-import {FaGithub} from 'react-icons/fa'
+import {FaGithub} from 'react-icons/fa';
+
+
+export async function getServerSideProps(context: NextPageContext) {
+    const session = await getSession(context);
+  
+    if (session) {
+      return {
+        redirect: {
+          destination: '/',
+          permanent: false,
+        }
+      }
+    }
+  
+    return {
+      props: {}
+    }
+  }
 
 const Auth = () =>{
     // const router = useRouter();
