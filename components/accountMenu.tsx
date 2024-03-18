@@ -8,18 +8,8 @@ interface AccountMenuProps {
     visible?: boolean;
 }
 
-export async function getServerSideProps(context:NextPageContext) {
-  const router = useRouter();
-    if(await signOut()){
-
-        router.push('/auth')
-
-    }
-
-  };
-
 const AccountMenu:React.FC<AccountMenuProps> = ({visible}) => {
-
+    const router = useRouter();
     const { data } = useCurrentUser();
 
         if(!visible){
@@ -36,7 +26,10 @@ const AccountMenu:React.FC<AccountMenuProps> = ({visible}) => {
                     </p>
                 </div>
                 <hr className="bg-gray-600 border-0 h-px my-4" />
-                <div onClick={()=> signOut()} className="px-3 text-center text-white text-sm hover:underline">
+                <div onClick={async () => {
+                    await signOut();
+                    await router.push('/');
+                    }} className="px-3 text-center text-white text-sm hover:underline">
                     Sign out of Netflix
                 </div>
             </div>
