@@ -1,7 +1,7 @@
 //hooks
 import { useState,useCallback } from "react";
 import { NextPageContext } from 'next';
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 //components
 import Input from "../components/input";
 //axios
@@ -31,7 +31,7 @@ export async function getServerSideProps(context: NextPageContext) {
   }
 
 const Auth = () =>{
-    // const router = useRouter();
+    const router = useRouter();
 
     const [email,setEmail] = useState("");
     const [name, setName] = useState("");
@@ -49,14 +49,15 @@ const Auth = () =>{
             await signIn('credentials',{
                 email,
                 password,
-                // redirect:false,
-                callbackUrl:'/profiles',
+                redirect:false,
+                callbackUrl:'/',
             });
+            router.push('/profiles');
 
         }catch(error){
             console.log(error)
         }
-    },[email,password])
+    },[email,password,router])
 
     //register
     const register = useCallback(async()=>{
