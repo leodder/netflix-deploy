@@ -3,23 +3,23 @@ import { NextPageContext } from "next";
 import { getSession, useSession  } from "next-auth/react";
 import { useRouter } from "next/router";
 
-// export async function getServerSideProps(context: NextPageContext){
+export async function getServerSideProps(context: NextPageContext){
 
-//     const session = await getSession(context);
+    const session = await getSession(context);
 
-//     if(!session){
-//         return {
-//             redirect:{
-//                 destination:'/auth',
-//                 permanent:false,
-//             }
-//         }
-//     }
+    if(!session){
+        return {
+            redirect:{
+                destination:'/auth',
+                permanent:false,
+            }
+        }
+    }
 
-//     return {
-//         props:{}
-//     }
-// }
+    return {
+        props:{}
+    }
+}
 
 const Profiles = () => {
 
