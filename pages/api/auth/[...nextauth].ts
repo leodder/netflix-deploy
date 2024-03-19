@@ -4,7 +4,6 @@ import {compare} from "bcrypt";
 
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
-// import FacebookProvider from 'next-auth/providers/facebook'
 
 import {PrismaAdapter} from '@next-auth/prisma-adapter';
 
@@ -12,10 +11,6 @@ import prismadb from "../../../lib/prismadb";
 
 export const authOptions: AuthOptions = {
     providers:[
-        // FacebookProvider({
-        //     clientId:process.env.GITHUB_ID || '',
-        //     clientSecret:process.env.GITHUB_SECRET || ''
-        // }),
         GithubProvider({
             clientId:process.env.GITHUB_ID || '',
             clientSecret:process.env.GITHUB_SECRET || ''
