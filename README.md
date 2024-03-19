@@ -1,4 +1,3 @@
-![image](https://github.com/leodder/netflix-clone/blob/main/netflix-clone.png)
 
 
 主要語言與框架： Typescript, NextJS Setup
